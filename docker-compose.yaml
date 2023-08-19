@@ -4,13 +4,21 @@ services:
     image: 'mongo'
     volumes:
       - data:/data/db:ro
-    environment:
-      #MONGO_INITDB_ROOT_USERNAME: rajlaxmi
-      - MONGO_INITDB_ROOT_USERNAME=rajlaxmi
-      - MONGO_INITDB_ROOT_PASSWORD=secret
+    env_file:
+      - ./env/mongo.env
+    backend:
+      build: ./backend
+      ports:
+        - '80:80'
+      volumes:
+          - logs:/app/logs
+          - ./backend:/app
+          - /app/node_modules
+      env_file:
+        - ./env/backend.aenv
+      depends_on:
+          - mongodb
 
-        # backend:
-        #frontend:
 volumes:
   data:
 
