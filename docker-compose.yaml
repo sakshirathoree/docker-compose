@@ -6,18 +6,18 @@ services:
       - data:/data/db:ro
     env_file:
       - ./env/mongo.env
-    backend:
-      build: ./backend
-      ports:
-        - '80:80'
-      volumes:
-          - logs:/app/logs
-          - ./backend:/app
-          - /app/node_modules
-      env_file:
-        - ./env/backend.aenv
-      depends_on:
-          - mongodb
+  backend:
+    build: ./backend
+    ports:
+      - '80:80'
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.aenv
+    depends_on:
+      - mongodb
 
 volumes:
   data:
