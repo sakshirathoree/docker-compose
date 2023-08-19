@@ -9,8 +9,8 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=rajlaxmi
       - MONGO_INITDB_ROOT_PASSWORD=secret
 
-  backend:
-  frontend:
+        # backend:
+        #frontend:
 volumes:
   data:
 
