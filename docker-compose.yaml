@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  mongodb:
+    image: 'mongo'
+    volumes:
+      - data:/data/db:ro
+    environment:
+      #MONGO_INITDB_ROOT_USERNAME: rajlaxmi
+      - MONGO_INITDB_ROOT_USERNAME=rajlaxmi
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+
+  backend:
+  frontend:
+volumes:
+  data:
+
