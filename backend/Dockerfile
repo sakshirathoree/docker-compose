@@ -6,6 +6,9 @@ COPY package*.json .
 
 RUN npm install
 
+# Add node_modules to the PATH environment variable
+ENV PATH /app/node_modules/.bin:$PATH
+
 COPY . .
 
 EXPOSE 80
